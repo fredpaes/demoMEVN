@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+
+  dbmongo:
+    image: mongo:4.0.4
+    volumes:
+      - mongo-data:/data/db
+    expose:
+      - 27017
+    ports:
+      - '27017:27017'
+    networks:
+      - backend
+    # entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+    # logging:
+    #   driver: none
+
+  demo:
+    container_name: demo
+    build: ./demo
+    ports:
+      - 80
+    volumes:
+      - ./demo:/usr/src/app
+      - demo-node_modules:/usr/src/app/node_modules
+    depends_on:
+      - dbmongo
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  mongo-data:
+  demo-node_modules:
+  # public-node_modules:
+  # admin-node_modules:
