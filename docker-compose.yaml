@@ -12,7 +12,6 @@ services:
       - '27017:27017'
     networks:
       - backend
-    # entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
     # logging:
     #   driver: none
 
