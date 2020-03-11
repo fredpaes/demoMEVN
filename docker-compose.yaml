@@ -19,10 +19,16 @@ services:
     container_name: demo
     build: ./demo
     ports:
-      - 80
+      - '3000:3000'
+    expose:
+        - 3000
     volumes:
       - ./demo:/usr/src/app
       - demo-node_modules:/usr/src/app/node_modules
+    environment:
+      - VIRTUAL_HOST=dev.local.com
+      - PORT=3000
+      - NODE_ENV=development
     depends_on:
       - dbmongo
     networks:
