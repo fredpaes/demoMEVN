@@ -1,0 +1,27 @@
+@url=http://dev.local.com:3000/tasks
+
+### GET
+GET {{url}}/ HTTP/1.1
+
+### POST
+POST {{url}}/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "title":  "Titulo 1",
+  "description": "descripcion 1"
+}
+
+### PUT
+@id_to_put=5e697b7fe9a6b0001dec2686
+PUT {{url}}/{{id_to_put}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "title_to_edit",
+  "description": "description_to_edit"
+}
+
+### DELETE
+@id_to_delete=5e697b7fe9a6b0001dec2686
+DELETE {{url}}/{{id_to_delete}} HTTP/1.1

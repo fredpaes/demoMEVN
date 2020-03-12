@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  let task = new Task(req.body)
-  await task.save()
+  let task = new Task(req.body);
+  await task.save();
   res.json({ status: true, data: 'Task saved' });
 })
 
@@ -22,7 +22,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   let { id } = req.params;
-  await Task.findByIdAndRemove(id)
+  await Task.findByIdAndRemove(id);
   res.json({ status: true, data: 'Task deleted' });
 })
 
