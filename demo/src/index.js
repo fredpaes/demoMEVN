@@ -18,10 +18,11 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // routes
-app.use('/tasks', require('~/routes/tasks'));
+// app.get('/', (req, res) => res.render('index.html'))
+app.use('/api/tasks', require('~/routes/tasks'));
 
 // static files
-app.use(express.static('~/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(app.get('port'), () => {
   console.log(`Server running on port ${app.get('port')}`);
