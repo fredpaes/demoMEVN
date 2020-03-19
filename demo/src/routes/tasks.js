@@ -26,4 +26,9 @@ router.delete('/:id', async (req, res) => {
   res.json({ status: true, data: 'Task deleted' });
 })
 
+router.get('/:id', async (req, res) => {
+  let task = await Task.findById(req.params.id);
+  res.json({ status: true, data: task });
+})
+
 module.exports = router;

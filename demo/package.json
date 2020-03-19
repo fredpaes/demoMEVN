@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/",
-    "webpack": "webpack --mode development --watch"
+    "webpack": "webpack --mode development --watch",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "Fred Paucar",
@@ -18,8 +19,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
     "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2",
     "vue": "^2.6.11",
